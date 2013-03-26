@@ -1,71 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Typescript Demo</title>
+<title>Typescript Demo</title>
+<link href="messageBox.css" rel="stylesheet" type="text/css" />
 <script src="MessageBox.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
 window.onload = function() {
     var cl = document.getElementById("cl");
     cl.onclick = function() {
-        var div = new MessageBox(".message-block");
+        var div = new MessageBox();
         div.setHeaderText("Hello");
         div.setBodyText("Hhhhhhhhhhhhhhhhhhhhhhhhhh<br />hhhhhhhhhhhhhhhhhh");
     }
 }
 </script>
-<style>
-.message-block {
-    width: 250px;
-    border: 1px solid #000;
-    padding: 1px;
-    display: none;
-    z-index:1999;
-    background: #fff;
-}
-
-
-.message-block-body {
-    padding: 4px;
-}
-.message-block-close {
-    float: right;
-    color: #fff;
-    font-weight: bold;
-    width: 10px;
-    height: 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
-.message-block-close:hover {
-    color: #999;
-}
-.message-block-header {
-    padding: 5px;
-    height: 20px;
-    background-color: #333;
-    color: #fff;
-    border-top: 1px solid #000;
-    cursor: move;
-}
-
-#message-block-bg {
-    background:#111;
-    width:100%;
-    height:100%;
-    position:fixed;
-    opacity:0.5;
-    display:none;
-    margin:0 auto;
-    z-index:999;
-}
-</style>
 </head>
 <body>
 <p id="cl">click</p>
-<div class="message-block">
-    <div class="message-block-header"><span class="message-block-header-text"></span><span class="message-block-close">X</span></div>
-    <div class="message-block-body"></div>
-</div>
 </body>
 </html>
