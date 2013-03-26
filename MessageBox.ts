@@ -1,6 +1,8 @@
 class MessageBox {
     private dragObject:HTMLElement; //временная переменная класса для хранения объекта перетаскивания
     private delta = new Array(); //смещение курсора для плавного перетаскивания
+    private headerText:string;
+    private bodyText:string;
 
     /*
     Конструктор получает jQuery-селектор
@@ -9,6 +11,7 @@ class MessageBox {
     constructor(obj) {
         $(obj).show();
         $(obj).offset({top: ($(document).height() / 2) - ($(obj).height() / 2), left: ($(document).width() / 2) - ($(obj).width() / 2)});
+        $(document.body).prepend("<div id='message-block-bg'></div>");
         $("#message-block-bg").show();
 
         this.initDragObject(obj);
@@ -52,5 +55,15 @@ class MessageBox {
             $(this).parent().parent().hide();
             $("#message-block-bg").hide();
         });
+    }
+
+    public setHeaderText(text:string) {
+        this.headerText = text;
+        $(".message-block-header-text").html(text);
+    }
+
+    public setBodyText(text:string) {
+        this.bodyText = text;
+        $(".message-block-body").html(text);
     }
 }

@@ -6,6 +6,7 @@ var MessageBox = (function () {
             top: ($(document).height() / 2) - ($(obj).height() / 2),
             left: ($(document).width() / 2) - ($(obj).width() / 2)
         });
+        $(document.body).prepend("<div id='message-block-bg'></div>");
         $("#message-block-bg").show();
         this.initDragObject(obj);
         this.close();
@@ -51,6 +52,14 @@ var MessageBox = (function () {
             $(this).parent().parent().hide();
             $("#message-block-bg").hide();
         });
+    };
+    MessageBox.prototype.setHeaderText = function (text) {
+        this.headerText = text;
+        $(".message-block-header-text").html(text);
+    };
+    MessageBox.prototype.setBodyText = function (text) {
+        this.bodyText = text;
+        $(".message-block-body").html(text);
     };
     return MessageBox;
 })();
