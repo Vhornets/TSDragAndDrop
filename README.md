@@ -8,6 +8,6 @@ Simple DragAndDrop TypeScript class
 Использование(псевдокод):<br><br>
 if (что-то произошло) {<br>
   var message = new MessageBox("название_jquery_селектора");<br>
-  div.setHeaderText("Заголовок окна");<br>
-  div.setBodyText("Тело окна. Можно использовать html-теги");<br>
+  message.setHeaderText("Заголовок окна");<br>
+  message.setBodyText("Тело окна. Можно использовать html-теги");<br>
 }
