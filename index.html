@@ -11,12 +11,18 @@ window.onload = function() {
     cl.onclick = function() {
         var div = new MessageBox();
         div.setHeaderText("Hello");
-        div.setBodyText("Hhhhhhhhhhhhhhhhhhhhhhhhhh<br />hhhhhhhhhhhhhhhhhh");
+        div.setBodyText("<form action='sss.php'><input type='text' value='name' /> <br /> <br /><input type='text' value='email' /> <br /> <br /> <textarea>message</textarea> <br /> <br /> <input type='submit' value='OK' /></form>");
+    }
+    document.getElementById("cx").onclick = function() {
+        var div = new MessageBox();
+        div.setHeaderText("Hello");
+        div.setBodyText("<form action='sss.php'><input type='text' value='name' /> <br /> <br /><input type='text' value='email' /> <br /> <br /> <textarea>message</textarea> <br /> <br /> <input type='submit' value='OK' /></form>");
     }
 }
 </script>
 </head>
 <body>
 <p id="cl">click</p>
+<p id="cx">click</p>
 </body>
 </html>

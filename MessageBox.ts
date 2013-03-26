@@ -3,11 +3,16 @@ class MessageBox {
     private delta = new Array(); //смещение курсора для плавного перетаскивания
     private headerText:string;
     private bodyText:string;
+
+    private docW:number;
+    private docH:number;
     /*
     Конструктор получает jQuery-селектор
     показывает скрытый контейнер и позиционирует его по центру экрана
      */
     constructor() {
+        this.docW = $(document).width();
+        this.docH = $(document).height();
         this.createBox();
         this.initDragObject(".message-block-header");
         this.close();
@@ -21,7 +26,7 @@ class MessageBox {
             this.dragObject = $(obj).parent();
             this.delta['X']= e.clientX - $(obj).offset().left;
             this.delta['Y'] = e.clientY - $(obj).offset().top;
-            this.dragObject.css({'opacity':'0.5'});
+            //this.dragObject.css({'opacity':'0.5'});
             this.startDrag();
             return false;
         });
@@ -29,9 +34,10 @@ class MessageBox {
     }
 
     private stopDrag():void {
-        $(document).mouseup(() => {
-            $(this.dragObject).css({'opacity':'1'});
+        $(document).mouseup((e) => {
+            //this.dragObject.css({'opacity':'1'});
             $(document).unbind('mousemove');
+            //this.dragObject.child().unbind('mousedown');
             this.dragObject = null;
         });
     }
@@ -39,6 +45,18 @@ class MessageBox {
     private startDrag():void {
         $(document).mousemove((e) => {
             this.dragObject.offset({top: e.clientY - this.delta['Y'], left: e.clientX - this.delta['X']});
+
+            if(this.dragObject.position().left + this.dragObject.width() + 5 >= this.docW) {
+                this.dragObject.offset({left:this.docW - this.dragObject.width() - 5, top:e.clientY - this.delta['Y']});
+            }
+
+            if(this.dragObject.position().top + this.dragObject.height() + 5 >= this.docH) {
+                this.dragObject.offset({top:this.docH - this.dragObject.height() - 5, left:e.clientX - this.delta['X']});
+            }
+
+            if(this.dragObject.position().top + this.dragObject.height() + 5 >= this.docH && this.dragObject.position().left + this.dragObject.width() + 5 >= this.docW) {
+                this.dragObject.offset({top:this.docH - this.dragObject.height() - 5, left:this.docW - this.dragObject.width() - 5});
+            }
         });
     }
 
@@ -51,6 +69,7 @@ class MessageBox {
 
     private createBox():void {
         $(document.body).prepend("<div id='message-block-bg'></div>");
+
         $("#message-block-bg").after(
             "<div class='message-block'>" +
             "<div class='message-block-header'>" +
@@ -58,9 +77,11 @@ class MessageBox {
             "</div>" +
             "<div class='message-block-body'></div>" +
             "</div>");
+
         $("#message-block-bg").show();
-        $(".message-block").show();
-        $(".message-block").offset({top: ($(document).height() / 2) - ($(".message-block").height() / 2), left: ($(document).width() / 2) - ($(".message-block").width() / 2)});
+
+        $(".message-block").show().offset({top: ($(document).height() / 2) - ($(".message-block").height() / 2),
+                                           left: ($(document).width() / 2) - ($(".message-block").width() / 2)});
     }
 
     public setHeaderText(text:string) {
