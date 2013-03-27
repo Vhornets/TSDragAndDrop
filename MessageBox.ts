@@ -6,6 +6,8 @@ class MessageBox {
 
     private docW:number;
     private docH:number;
+    private maxW:number;
+    private maxH:number;
     /*
     Конструктор получает jQuery-селектор
     показывает скрытый контейнер и позиционирует его по центру экрана
@@ -24,9 +26,10 @@ class MessageBox {
     private initDragObject(obj):void {
         $(obj).mousedown((e) => {
             this.dragObject = $(obj).parent();
-            this.delta['X']= e.clientX - $(obj).offset().left;
-            this.delta['Y'] = e.clientY - $(obj).offset().top;
-            //this.dragObject.css({'opacity':'0.5'});
+            this.delta['X']= e.clientX - this.dragObject.offset().left;
+            this.delta['Y'] = e.clientY - this.dragObject.offset().top;
+            this.maxW = this.dragObject.width() + 5;
+            this.maxH = this.dragObject.height() + 5;
             this.startDrag();
             return false;
         });
@@ -35,9 +38,7 @@ class MessageBox {
 
     private stopDrag():void {
         $(document).mouseup((e) => {
-            //this.dragObject.css({'opacity':'1'});
             $(document).unbind('mousemove');
-            //this.dragObject.child().unbind('mousedown');
             this.dragObject = null;
         });
     }
@@ -45,19 +46,33 @@ class MessageBox {
     private startDrag():void {
         $(document).mousemove((e) => {
             this.dragObject.offset({top: e.clientY - this.delta['Y'], left: e.clientX - this.delta['X']});
-
-            if(this.dragObject.position().left + this.dragObject.width() + 5 >= this.docW) {
-                this.dragObject.offset({left:this.docW - this.dragObject.width() - 5, top:e.clientY - this.delta['Y']});
-            }
-
-            if(this.dragObject.position().top + this.dragObject.height() + 5 >= this.docH) {
-                this.dragObject.offset({top:this.docH - this.dragObject.height() - 5, left:e.clientX - this.delta['X']});
-            }
-
-            if(this.dragObject.position().top + this.dragObject.height() + 5 >= this.docH && this.dragObject.position().left + this.dragObject.width() + 5 >= this.docW) {
-                this.dragObject.offset({top:this.docH - this.dragObject.height() - 5, left:this.docW - this.dragObject.width() - 5});
-            }
+            this.calculateBorders(this.dragObject, e);
         });
+    }
+    /*
+    Вычисляем границы экрана,
+    чтобы перетаскиваемый объект не вылазил за границы.
+    Принимает первым пар-ром jQuery-объект, вторым - объект-событие
+    */
+    private calculateBorders(target, e):void {
+        if(target.position().left + this.maxW >= this.docW) {
+            target.offset({left:this.docW - this.maxW, top:e.clientY - this.delta['Y']});
+        }
+        if(target.position().top + this.maxH >= this.docH) {
+            target.offset({top:this.docH - this.maxH, left:e.clientX - this.delta['X']});
+        }
+        if(target.position().top + this.maxH >= this.docH && target.position().left + this.maxW >= this.docW) {
+            target.offset({top:this.docH - this.maxH, left:this.docW - this.maxW});
+        }
+        if(target.position().left <= 0) {
+            target.offset({left:0, top:e.clientY - this.delta['Y']});
+        }
+        if(target.position().top <= 0) {
+            target.offset({top:0, left:e.clientX - this.delta['X']});
+        }
+        if(target.position().top <= 0 && target.position().left <= 0) {
+            target.offset({top:0, left:0});
+        }
     }
 
     private close():void {
@@ -80,8 +95,8 @@ class MessageBox {
 
         $("#message-block-bg").show();
 
-        $(".message-block").show().offset({top: ($(document).height() / 2) - ($(".message-block").height() / 2),
-                                           left: ($(document).width() / 2) - ($(".message-block").width() / 2)});
+        $(".message-block").show().offset({top: (this.docH / 2) - ($(".message-block").height() / 2),
+                                           left: (this.docW / 2) - ($(".message-block").width() / 2)});
     }
 
     public setHeaderText(text:string) {
