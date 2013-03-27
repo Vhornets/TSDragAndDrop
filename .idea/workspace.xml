@@ -5,12 +5,13 @@
     <ignored path="tsdemo.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/tsdemo.ts" changelist="77d7f215-cd6c-4c2e-845b-0a75096c8d5c" time="1364134144455" ignored="false" />
-    <file path="/index.html" changelist="77d7f215-cd6c-4c2e-845b-0a75096c8d5c" time="1364292126714" ignored="false" />
+    <file path="/index.html" changelist="77d7f215-cd6c-4c2e-845b-0a75096c8d5c" time="1364313293129" ignored="false" />
     <file path="/DragNDrop.ts" changelist="77d7f215-cd6c-4c2e-845b-0a75096c8d5c" time="1364241789132" ignored="false" />
     <file path="/DragNDrop.js" changelist="77d7f215-cd6c-4c2e-845b-0a75096c8d5c" time="1364221424833" ignored="false" />
     <file path="/downloads.html" changelist="77d7f215-cd6c-4c2e-845b-0a75096c8d5c" time="1364239500416" ignored="false" />
-    <file path="/MessageBox.ts" changelist="77d7f215-cd6c-4c2e-845b-0a75096c8d5c" time="1364291278505" ignored="false" />
-    <file path="/Dummy.txt" changelist="77d7f215-cd6c-4c2e-845b-0a75096c8d5c" time="1364291095096" ignored="false" />
+    <file path="/MessageBox.ts" changelist="77d7f215-cd6c-4c2e-845b-0a75096c8d5c" time="1364387044943" ignored="false" />
+    <file path="/Dummy.txt" changelist="77d7f215-cd6c-4c2e-845b-0a75096c8d5c" time="1364385251158" ignored="false" />
+    <file path="/content.php" changelist="77d7f215-cd6c-4c2e-845b-0a75096c8d5c" time="1364301910422" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="1" selection-start="681" selection-end="681" vertical-scroll-proportion="-11.769231">
+            <state line="15" column="31" selection-start="706" selection-end="706" vertical-scroll-proportion="-9.807693">
               <folding />
             </state>
           </provider>
@@ -42,7 +43,7 @@
       <file leaf-file-name="MessageBox.ts" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MessageBox.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="13" selection-start="897" selection-end="897" vertical-scroll-proportion="0.9199134">
+            <state line="27" column="45" selection-start="907" selection-end="916" vertical-scroll-proportion="0.7056277">
               <folding />
             </state>
           </provider>
@@ -71,8 +72,12 @@
         <option value="$PROJECT_DIR$/DragNDrop.js" />
         <option value="$PROJECT_DIR$/../InxeraSyndrome/downloads.html" />
         <option value="$PROJECT_DIR$/DragNDrop.ts" />
-        <option value="$PROJECT_DIR$/MessageBox.ts" />
+        <option value="$PROJECT_DIR$/../SimpleBlog/scripts/cookies.js" />
+        <option value="$PROJECT_DIR$/../SimpleBlog/content.php" />
+        <option value="$PROJECT_DIR$/../SimpleBlog/css/style.css" />
+        <option value="$PROJECT_DIR$/messageBox.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/MessageBox.ts" />
       </list>
     </option>
   </component>
@@ -128,6 +133,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsdemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TSDragAndDrop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MessageBox.ts" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -135,13 +154,13 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="vcs.Git" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../SimpleBlog" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -192,10 +211,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20984848" sideWeight="0.8174204" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22651514" sideWeight="0.8174204" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18257956" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -270,34 +289,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="49" selection-start="335" selection-end="351" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="34" selection-start="282" selection-end="293" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="36" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
           <folding />
         </state>
@@ -340,16 +331,52 @@
         <state line="31" column="16" selection-start="1721" selection-end="1728" vertical-scroll-proportion="-18.307692" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../SimpleBlog/scripts/cookies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="1" selection-start="666" selection-end="666" vertical-scroll-proportion="0.77922076" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessageBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="47" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SimpleBlog/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="1" selection-start="966" selection-end="966" vertical-scroll-proportion="0.9264069" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SimpleBlog/content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="78" selection-end="140" vertical-scroll-proportion="0.19495413" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messageBox.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="1" selection-start="739" selection-end="739" vertical-scroll-proportion="1.508658">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="1" selection-start="681" selection-end="681" vertical-scroll-proportion="-11.769231">
+        <state line="15" column="31" selection-start="706" selection-end="706" vertical-scroll-proportion="-9.807693">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MessageBox.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="13" selection-start="897" selection-end="897" vertical-scroll-proportion="0.9199134">
+        <state line="27" column="45" selection-start="907" selection-end="916" vertical-scroll-proportion="0.7056277">
           <folding />
         </state>
       </provider>
