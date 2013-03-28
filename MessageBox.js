@@ -5,7 +5,6 @@ var MessageBox = (function () {
         this.docH = $(document).height();
         this.createBox();
         this.initDragObject(".message-block-header");
-        this.close();
     }
     MessageBox.prototype.initDragObject = function (obj) {
         var _this = this;
@@ -18,11 +17,7 @@ var MessageBox = (function () {
             _this.startDrag();
             return false;
         });
-        this.stopDrag();
-    };
-    MessageBox.prototype.stopDrag = function () {
-        var _this = this;
-        $(document).mouseup(function (e) {
+        $(document, obj).mouseup(function (e) {
             $(document).unbind('mousemove');
             _this.dragObject = null;
         });
@@ -35,6 +30,7 @@ var MessageBox = (function () {
                 left: e.clientX - _this.delta['X']
             });
             _this.calculateBorders(_this.dragObject, e);
+            return false;
         });
     };
     MessageBox.prototype.calculateBorders = function (target, e) {
@@ -75,7 +71,7 @@ var MessageBox = (function () {
             });
         }
     };
-    MessageBox.prototype.close = function () {
+    MessageBox.prototype.initCloseEvent = function () {
         $(".message-block-close").click(function () {
             $(".message-block").remove();
             $("#message-block-bg").remove();
@@ -89,14 +85,11 @@ var MessageBox = (function () {
             top: (this.docH / 2) - ($(".message-block").height() / 2),
             left: (this.docW / 2) - ($(".message-block").width() / 2)
         });
+        this.initCloseEvent();
     };
-    MessageBox.prototype.setHeaderText = function (text) {
-        this.headerText = text;
-        $(".message-block-header-text").html(text);
-    };
-    MessageBox.prototype.setBodyText = function (text) {
-        this.bodyText = text;
-        $(".message-block-body").html(text);
+    MessageBox.prototype.setContent = function (headerTtext, bodyText) {
+        $(".message-block-header-text").html(headerTtext);
+        $(".message-block-body").html(bodyText);
     };
     return MessageBox;
 })();

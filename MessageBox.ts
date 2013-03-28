@@ -1,11 +1,10 @@
 class MessageBox {
     private dragObject:HTMLElement; //временная переменная класса для хранения объекта перетаскивания
     private delta = new Array(); //смещение курсора для плавного перетаскивания
-    private headerText:string;
-    private bodyText:string;
 
-    private docW:number;
-    private docH:number;
+    private docW = $(document).width();
+    private docH = $(document).height();
+
     private maxW:number;
     private maxH:number;
     /*
@@ -13,11 +12,8 @@ class MessageBox {
     показывает скрытый контейнер и позиционирует его по центру экрана
      */
     constructor() {
-        this.docW = $(document).width();
-        this.docH = $(document).height();
         this.createBox();
         this.initDragObject(".message-block-header");
-        this.close();
     }
     /*
     Инициализация объекта перетаскивания,
@@ -26,18 +22,19 @@ class MessageBox {
     private initDragObject(obj):void {
         $(obj).mousedown((e) => {
             this.dragObject = $(obj).parent();
+
             this.delta['X']= e.clientX - this.dragObject.offset().left;
             this.delta['Y'] = e.clientY - this.dragObject.offset().top;
+
             this.maxW = this.dragObject.width() + 5;
             this.maxH = this.dragObject.height() + 5;
+
             this.startDrag();
+
             return false;
         });
-        this.stopDrag();
-    }
 
-    private stopDrag():void {
-        $(document).mouseup((e) => {
+        $(document, obj).mouseup((e) => {
             $(document).unbind('mousemove');
             this.dragObject = null;
         });
@@ -46,7 +43,10 @@ class MessageBox {
     private startDrag():void {
         $(document).mousemove((e) => {
             this.dragObject.offset({top: e.clientY - this.delta['Y'], left: e.clientX - this.delta['X']});
+
             this.calculateBorders(this.dragObject, e);
+
+            return false;
         });
     }
     /*
@@ -75,7 +75,7 @@ class MessageBox {
         }
     }
 
-    private close():void {
+    private initCloseEvent():void {
         $(".message-block-close").click(function() {
             $(".message-block").remove();
             $("#message-block-bg").remove();
@@ -97,15 +97,12 @@ class MessageBox {
 
         $(".message-block").show().offset({top: (this.docH / 2) - ($(".message-block").height() / 2),
                                            left: (this.docW / 2) - ($(".message-block").width() / 2)});
+
+        this.initCloseEvent();
     }
 
-    public setHeaderText(text:string) {
-        this.headerText = text;
-        $(".message-block-header-text").html(text);
-    }
-
-    public setBodyText(text:string) {
-        this.bodyText = text;
-        $(".message-block-body").html(text);
+    public setContent(headerTtext:string, bodyText:string) {
+        $(".message-block-header-text").html(headerTtext);
+        $(".message-block-body").html(bodyText);
     }
 }
