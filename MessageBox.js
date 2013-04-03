@@ -1,8 +1,8 @@
 var MessageBox = (function () {
     function MessageBox() {
-        this.delta = new Array();
-        this.docW = $(document).width();
-        this.docH = $(document).height();
+        this.delta = [];
+        this.docW = $(window).width();
+        this.docH = $(window).height();
         this.createBox();
         this.initDragObject(".message-block-header");
     }
@@ -34,62 +34,80 @@ var MessageBox = (function () {
         });
     };
     MessageBox.prototype.calculateBorders = function (target, e) {
-        if(target.position().left + this.maxW >= this.docW) {
+        var leftPosition = target.position().left;
+        var topPosition = target.position().top;
+        if(leftPosition + this.maxW >= this.docW) {
             target.offset({
                 left: this.docW - this.maxW,
                 top: e.clientY - this.delta['Y']
             });
         }
-        if(target.position().top + this.maxH >= this.docH) {
+        if(topPosition + this.maxH >= this.docH) {
             target.offset({
                 top: this.docH - this.maxH,
                 left: e.clientX - this.delta['X']
             });
         }
-        if(target.position().top + this.maxH >= this.docH && target.position().left + this.maxW >= this.docW) {
+        if(topPosition + this.maxH >= this.docH && leftPosition + this.maxW >= this.docW) {
             target.offset({
                 top: this.docH - this.maxH,
                 left: this.docW - this.maxW
             });
         }
-        if(target.position().left <= 0) {
+        if(leftPosition <= 0) {
             target.offset({
                 left: 0,
                 top: e.clientY - this.delta['Y']
             });
         }
-        if(target.position().top <= 0) {
+        if(topPosition <= 0) {
             target.offset({
                 top: 0,
                 left: e.clientX - this.delta['X']
             });
         }
-        if(target.position().top <= 0 && target.position().left <= 0) {
+        if(topPosition <= 0 && target.position().left <= 0) {
             target.offset({
                 top: 0,
                 left: 0
             });
         }
+        if(leftPosition <= 0 && topPosition + this.maxH >= this.docH) {
+            target.offset({
+                left: 0,
+                top: this.docH - this.maxH
+            });
+        }
+        if(topPosition <= 0 && leftPosition + this.maxW >= this.docW) {
+            target.offset({
+                top: 0,
+                left: this.docW - this.maxW
+            });
+        }
     };
     MessageBox.prototype.initCloseEvent = function () {
-        $(".message-block-close").click(function () {
+        $(".message-block-close, #message-block-bg").click(function () {
             $(".message-block").remove();
             $("#message-block-bg").remove();
         });
     };
     MessageBox.prototype.createBox = function () {
         $(document.body).prepend("<div id='message-block-bg'></div>");
-        $("#message-block-bg").after("<div class='message-block'>" + "<div class='message-block-header'>" + "<span class='message-block-header-text'></span><span class='message-block-close'>X</span>" + "</div>" + "<div class='message-block-body'></div>" + "</div>");
         $("#message-block-bg").show();
+        $("#message-block-bg").after("<div class='message-block'>" + "<div class='message-block-header'>" + "<span class='message-block-header-text'></span><span class='message-block-close'>&#x2715;</span>" + "</div>" + "<div class='message-block-body'></div>" + "</div>");
         $(".message-block").show().offset({
-            top: (this.docH / 2) - ($(".message-block").height() / 2),
+            top: (this.docH / 2),
             left: (this.docW / 2) - ($(".message-block").width() / 2)
         });
         this.initCloseEvent();
     };
-    MessageBox.prototype.setContent = function (headerTtext, bodyText) {
+    MessageBox.prototype.setContent = function (headerTtext, bodyText, loadPage) {
         $(".message-block-header-text").html(headerTtext);
-        $(".message-block-body").html(bodyText);
+        if(!loadPage) {
+            $(".message-block-body").html(bodyText);
+        } else {
+            $(".message-block-body").load(bodyText);
+        }
     };
     return MessageBox;
 })();

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 <title>Typescript Demo</title>
 <link href="messageBox.css" rel="stylesheet" type="text/css" />
 <script src="MessageBox.js"></script>
@@ -10,13 +11,24 @@ window.onload = function() {
     var cl = document.getElementById("cl");
     cl.onclick = function() {
         var div = new MessageBox();
-        div.setContent("Hello",
-                "<form action='sss.php'><input type='text' value='name' /> <br /> <br /><input type='text' value='email' /> <br /> <br /> <textarea>message</textarea> <br /> <br /> <input type='submit' value='OK' /></form>");
+        div.setContent("Hello", "2.html", true);
     }
+
+    var images = document.getElementsByTagName('img');
+    for(var i = 0; i<images.length; i++) {
+        images[i].onclick = function() {
+            var imgBox = new MessageBox();
+            imgBox.setContent(this.getAttribute('alt'), "<img src='" + this.src + "' width='300' /><br/>" + this.getAttribute('title'));
+        }
+    }
+
 }
 </script>
 </head>
 <body>
 <p id="cl">click</p>
+<img src='1.jpg' width="200" alt='First picture' title="Sssssssssssssssssssss"/>
+<img src='2.png' width="200" alt='Second picture' title="Sssssssssssssssssssss" />
+<div id='ajax'></div>
 </body>
 </html>

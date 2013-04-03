@@ -5,17 +5,20 @@
     z-index:1999;
     background: #fff;
     position: absolute;
+    width: 310px;
+    height: auto;
 }
 .message-block-body {
     padding: 4px;
+}
+.message-block-body > img {
+    border: 1px solid #000000;
 }
 .message-block-close {
     float: right;
     color: #fff;
     font-weight: bold;
-    width: 10px;
-    height: 10px;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
 }
 .message-block-close:hover {

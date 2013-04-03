@@ -1,0 +1,22 @@
+<script>
+    $("#hello").on("submit", function(e) {
+        e.preventDefault();
+        $("#submit").val("Отправка комментария...");
+        var m_data=$(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: "hello.php",
+            data: m_data,
+            success: function(data){
+                $("#ajax").html(data);
+                $(".message-block").remove();
+                $("#message-block-bg").remove();
+            }
+        });
+    });
+</script>
+<form id="hello">
+<p>E-mail:</p>
+<input type="text" name="name" size="20" />
+<input id="submit" type="submit" value="Ok" />
+</form>
