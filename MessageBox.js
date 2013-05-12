@@ -1,3 +1,14 @@
+/* MessageBox by Victor Hornets
+ * 2013
+ * ---------------------------
+ * http://vh-m.net/
+ * https://github.com/Vhornets
+ * ---------------------------
+ * Usage:
+ * var someVar = new MessageBox();
+ * someVar.setContent(str TITLE, [str BODY, str PAGE_LINK], bool LOAD_PAGE);
+*/
+
 var MessageBox = (function () {
     function MessageBox() {
         this.delta = [];
@@ -95,8 +106,8 @@ var MessageBox = (function () {
         $(document.body).prepend("<div id='message-block-bg'></div>");
         $("#message-block-bg").show();
         $("#message-block-bg").after("<div class='message-block'>" + "<div class='message-block-header'>" + "<span class='message-block-header-text'></span><span class='message-block-close'>&#x2715;</span>" + "</div>" + "<div class='message-block-body'></div>" + "</div>");
-        $(".message-block").show().offset({
-            top: (this.docH / 2),
+        $(".message-block").offset({
+            top: (this.docH / 2) - ($(".message-block").height() / 2) + $(window).scrollTop(),
             left: (this.docW / 2) - ($(".message-block").width() / 2)
         });
         this.initCloseEvent();
@@ -106,9 +117,15 @@ var MessageBox = (function () {
         if(!loadPage) {
             $(".message-block-body").html(bodyText);
         } else {
-            $(".message-block-body").load(bodyText);
+            $.ajax({
+                url: bodyText,
+                cache: false,
+                success: function(data) {
+                    $(".message-block-body").html(data);
+                }
+            });
         }
+        $(".message-block").show('slow');
     };
     return MessageBox;
 })();
-//@ sourceMappingURL=MessageBox.js.map
