@@ -50,48 +50,48 @@ var MessageBox = (function () {
         if(leftPosition + this.maxW >= this.docW) {
             target.offset({
                 left: this.docW - this.maxW,
-                top: e.clientY - this.delta['Y']
+                top: e.clientY - this.delta['Y'] + $(window).scrollTop()
             });
         }
         if(topPosition + this.maxH >= this.docH) {
             target.offset({
-                top: this.docH - this.maxH,
+                top: this.docH - this.maxH + $(window).scrollTop(),
                 left: e.clientX - this.delta['X']
             });
         }
         if(topPosition + this.maxH >= this.docH && leftPosition + this.maxW >= this.docW) {
             target.offset({
-                top: this.docH - this.maxH,
+                top: this.docH - this.maxH + $(window).scrollTop(),
                 left: this.docW - this.maxW
             });
         }
         if(leftPosition <= 0) {
             target.offset({
                 left: 0,
-                top: e.clientY - this.delta['Y']
+                top: e.clientY - this.delta['Y'] + $(window).scrollTop()
             });
         }
         if(topPosition <= 0) {
             target.offset({
-                top: 0,
+                top: 0 + $(window).scrollTop(),
                 left: e.clientX - this.delta['X']
             });
         }
         if(topPosition <= 0 && target.position().left <= 0) {
             target.offset({
-                top: 0,
+                top: 0 + $(window).scrollTop(),
                 left: 0
             });
         }
         if(leftPosition <= 0 && topPosition + this.maxH >= this.docH) {
             target.offset({
                 left: 0,
-                top: this.docH - this.maxH
+                top: this.docH - this.maxH + $(window).scrollTop()
             });
         }
         if(topPosition <= 0 && leftPosition + this.maxW >= this.docW) {
             target.offset({
-                top: 0,
+                top: 0 + $(window).scrollTop(),
                 left: this.docW - this.maxW
             });
         }
