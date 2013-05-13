@@ -50,7 +50,7 @@ var MessageBox = (function () {
         if(leftPosition + this.maxW >= this.docW) {
             target.offset({
                 left: this.docW - this.maxW,
-                top: e.clientY - this.delta['Y'] + $(window).scrollTop()
+                top: e.clientY - this.delta['Y']
             });
         }
         if(topPosition + this.maxH >= this.docH) {
@@ -68,7 +68,7 @@ var MessageBox = (function () {
         if(leftPosition <= 0) {
             target.offset({
                 left: 0,
-                top: e.clientY - this.delta['Y'] + $(window).scrollTop()
+                top: e.clientY - this.delta['Y']
             });
         }
         if(topPosition <= 0) {
