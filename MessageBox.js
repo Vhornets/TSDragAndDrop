@@ -24,7 +24,6 @@
 * ----------------------------------------------------------------------------------------
 DOM manipulations made with jQuery, so jQuery may be included in your document
 */
-
 var MessageBox = (function () {
     function MessageBox(opts) {
         this.delta = [];
