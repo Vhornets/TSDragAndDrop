@@ -10,25 +10,69 @@
 window.onload = function() {
     var cl = document.getElementById("cl");
     cl.onclick = function() {
-        var div = new MessageBox();
-        div.setContent("Hello", "2.html", true);
+        new MessageBox({
+            header: 'Hello',
+            body: '2.html',
+            loadAJAX: true,
+            draggable: true
+        });
     }
 
     var images = document.getElementsByTagName('img');
     for(var i = 0; i<images.length; i++) {
         images[i].onclick = function() {
-            var imgBox = new MessageBox();
-            imgBox.setContent(this.getAttribute('alt'), "<img src='" + this.src + "' width='300' /><br/>" + this.getAttribute('title'));
+           new MessageBox({
+                header: this.getAttribute('alt'),
+                body: "<img src='" + this.src + "' width='300' />",
+                loadAJAX: false,
+                draggable: true
+            });
         }
     }
 
 }
 </script>
+<style>
+    body,html {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;   
+    }
+</style>
 </head>
 <body>
 <p id="cl">click</p>
 <img src='1.jpg' width="200" alt='First picture' title="Sssssssssssssssssssss"/>
 <img src='2.png' width="200" alt='Second picture' title="Sssssssssssssssssssss" />
 <div id='ajax'></div>
+s <br/>s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+s <br/>
+
 </body>
 </html>

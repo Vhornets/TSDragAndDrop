@@ -5,39 +5,49 @@
     z-index:1999;
     background: #fff;
     position: fixed;
-    width: 790px;
+    width: 60%;
     height: 650px;
+    overflow: hidden;
+    overflow-y: auto;
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 .message-block-body {
-    padding: 4px;   
+  padding: 5px;  
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+  text-align: left;
 }
 .message-block-close {
     float: right;
-    color: #fff;
+    color: #333;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
+    position: relative;    
 }
 .message-block-close:hover {
     color: #999;
 }
 .message-block-header {
-    padding: 15px;
-    height: 25px;
-    background-color: #333;
-    color: #fff;
+    padding: 5px;
+    height: 20px;
+    color: #333;
     cursor: move;
-    box-shadow: inset 0 0 3px #000000;
-    -moz-box-shadow: inset 0 0 3px #000000;
-    -webkit-box-shadow: inset 0 0 3px #000000;    
+    background: transparent;
 }
 #message-block-bg {
-    background:#111;
+    background:#0b0b0b;
     width:100%;
     height:100%;
+    min-height:100%;
     position:fixed;
-    opacity:0.8;
-    display:none;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.9;
+    -khtml-opacity: 0.9;
+    opacity: 0.9;
     margin: 0;
     padding: 0;
     border: 0;
