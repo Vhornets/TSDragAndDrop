@@ -1,12 +1,20 @@
-TSDragAndDrop
+MessageBox modal
 =============
 
-Simple DragAndDrop TypeScript class
-
-Простой класс для обкатывания синтаксиса свежего TypeScript. Дабы не плясать вокруг борьбы с проблемой различной интерпретации объекта-событие, использовался jQuery<br>
-Выводит всплывающее окошко с сообщением (можно использовать любой HTML. Вывести форму всплывающим окном, например). <br>
-Использование(псевдокод):<br><br>
-if (событие) {<br>
-  var message = new MessageBox();<br>
-  message.setContent("Заголовок окна", "Содержимое", bool loadPageViaAjax /* если true, то в тело окна загрузится страница по указанному адресу во втором параметре */);<br>
-}
+Usage: <br>
+new MessageBox([Object object] options); <br>
+[Object object] options: <br>
+ header:    String  --- Header text <br>
+ body:      String  --- Body content(static text or link to page which is load via AJAX <br>
+ loadAJAX:  Boolean --- How to load body content: static content or via AJAX <br>
+ draggable: Boolean --- Make modal window draggable or not <br>
+---------------------------------------------------------------------------------------- <br>
+Example: <br>
+element.onclick = function() { <br>
+   new MessageBox({ <br>
+       header: 'Hello', <br>
+       body: '2.html', <br>
+       loadAJAX: true, <br>
+       draggable: true <br>
+   });
+ *}
