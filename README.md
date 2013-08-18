@@ -10,11 +10,13 @@ new MessageBox([Object object] options); <br>
  draggable: Boolean --- Make modal window draggable or not <br>
 ---------------------------------------------------------------------------------------- <br>
 Example: <br>
-element.onclick = function() { <br>
-   new MessageBox({ <br>
-       header: 'Hello', <br>
-       body: '2.html', <br>
-       loadAJAX: true, <br>
-       draggable: true <br>
+<pre>
+element.onclick = function() { 
+   new MessageBox({ 
+       header: 'Hello',
+       body: '2.html', 
+       loadAJAX: true,
+       draggable: true 
    });
- *}
+}
+ </pre>
