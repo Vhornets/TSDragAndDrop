@@ -4,37 +4,45 @@
     z-index:1999;
     background: #fff;
     position: fixed;
-    width: 700px;
+    width: auto;
     max-width: 800px;
-    height: 500px;
+    height: auto;
     max-height: 750px;
-    overflow: hidden;
-    overflow-y: auto;
-    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  overflow: auto;
+    font-family: "Open Sans",Arial,sans-serif;
 }
 .message-block-body {
-    padding: 5px;  
+    padding: 5px;
     vertical-align: middle;
     margin: 0 auto;
     text-align: left;
+    position: relative;
+    line-height: 24px;
 }
 .message-block-body img {
-    display: block;   
-    margin-left: auto;   
+    display: block;
+    margin-left: auto;
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
     width: auto;
+    height: auto;
+    max-width: 600px;
+    max-height: 500px;
 }
 .message-block-close {
-    float: right;
-    color: #333;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    font-size: 30px;
     font-weight: bold;
-    font-size: 20px;
+    line-height: 1;
+    color: #000000;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
     cursor: pointer;
-    position: relative;   
-    padding: 0;
-    margin: 0 auto; 
+    font-family: monospace, serif;
 }
 .message-block-close:hover {
     color: #999;
@@ -43,9 +51,12 @@
     padding: 5px;
     height: 20px;
     color: #333;
-    cursor: move;
     background: transparent;
     font-weight: bold;
+    text-shadow: 0 0 1px #BCBCBC;
+    text-align: center;
+}
+.message-block-header-text {
 }
 #message-block-bg {
     background:#0b0b0b;
@@ -61,8 +72,5 @@
     margin: 0;
     padding: 0;
     border: 0;
-    z-index:999;
-}
-body {
-    height: 1500px;
+    z-index:5;
 }
