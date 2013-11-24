@@ -1,6 +1,6 @@
 MessageBox modal
 =============
-
+Modal window with drag and drop. Might be used as minimalistic modal gallery with arrows keys to swtich images.
 Usage: <br>
 new MessageBox([Object object] options); <br>
 [Object object] options: <br>
