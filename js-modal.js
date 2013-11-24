@@ -213,7 +213,7 @@ var MessageBox = (function () {
 
         function set() {
             _this.utils.getElementByClass('message-block-body').innerHTML = images[curImg].outerHTML;
-            _this.utils.getElementByClass('message-block-header-text').innerHTML = images[curImg].getAttribute('title') + ' (' + parseInt(curImg + 1) + '/' + parseInt(totalImages + 1) + ')';
+            _this.utils.getElementByClass('message-block-header-text').innerHTML = images[curImg].getAttribute('alt') + ' (' + parseInt(curImg + 1) + '/' + parseInt(totalImages + 1) + ')';
             _this.setCenter();
 
         }
