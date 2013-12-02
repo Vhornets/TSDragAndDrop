@@ -36,7 +36,7 @@
 <pre><code>var cl = document.getElementById("ajax-link");
 		
 cl.onclick = function() {
-	new MessageBox({
+	new JsModal({
 		header: 'Hello',
 		body: '2.html',
 		loadAJAX: true,
@@ -58,7 +58,7 @@ cl.onclick = function() {
     var images = document.getElementsByTagName('img');
     for(var i = 0; i&lt;images.length; i++) {
         images[i].onclick = function() {
-           new MessageBox({
+           new JsModal({
                 header: this.getAttribute('alt'),
                 body: "&lt;img src='" + this.src + "' width='300' /&gt;",
                 loadAJAX: false,
@@ -82,7 +82,7 @@ cl.onclick = function() {
 		</div>
 		<p>Code:</p>
 <pre><code>document.getElementById('gallery').onclick = function() {
-	new MessageBox({
+	new JsModal({
 		header: this.getAttribute('alt'),
 		body: '',
 		loadAJAX: false,
